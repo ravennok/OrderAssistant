@@ -1,0 +1,29 @@
+<h1>Hinnasto</h1>
+
+<table>
+  <tr>
+  	<th></th>
+    <th>Tuotteen nimi</th>
+    <th>Kuvaus</th>
+    <th>Hinta (Euroa)</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @menus.each do |menu| %>
+  <tr>
+  	<td><a href="<%= menu.picture_url %>"><img src="<%= menu.picture_url %>" width="150" height="140"/></a></td>
+    <td><%= menu.name %></td>
+    <td><%= menu.description %></td>
+    <td><%= menu.price %></td>
+    <td><%= link_to 'Show', menu %></td>
+    <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+    <td><%= link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'LisŠŠ uusi tuote listaan', new_menu_path %>
